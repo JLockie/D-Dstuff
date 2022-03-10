@@ -13,7 +13,7 @@ class Monster:
         self.spells = []
 
     def calc_hit_points(self):
-        return roll(f'{self.level}d4+{self.level + 1}')
+        return roll(f'{self.level}d6+{self.level + 1}')
 
     def calc_armor_class(self):
         return 10 - random.randint(0, self.level + 2)
@@ -34,9 +34,6 @@ class Skeleton(Monster):
     def calc_hit_points(self):
         return roll(f'2d6+{self.level + 2}')
 
-    def calc_armor_class(self):
-        return 20
-
 class Goblin(Monster):
 
     def __init__(self, name='goblin', level=0, hp=None, ac=None):
@@ -51,15 +48,16 @@ class Slime(Monster):
 
     def __init__(self, name='Slime', level=0, hp=None, ac=None):
         Monster.__init__(self, name=name, level=level, hp=hp, ac=ac)
-        self.hp = 4
+        self.hp = level +4
         self.obj_name = 'Slime'
 
 class Mage(Monster):
 
     def __init__(self, name='Mage', level=0, hp=None, ac=None):
         Monster.__init__(self, name=name, level=level, hp=hp, ac=ac)
-        self.hp = 4 * level
+        self.hp = self.calc_hit_points() 
         self.obj_name = name
+
 
 class Dragon(Monster):
 
@@ -67,13 +65,19 @@ class Dragon(Monster):
         Monster.__init__(self, name=name, level=level, hp=hp, ac=ac)
         self.hp = self.calc_hit_points()
         self.obj_name = name
-
+    
+    def calc_hit_points(self):
+        return roll(f'{self.level}d8+{self.level + 100}')
+    
+    def calc_armor_class(self):
+        return 20 - random.randint(0, self.level)
+    
 MONSTERS = [
     {'name': 'skeleton', 'levels': '01234', 'obj_name': 'Skeleton', 'obj': Skeleton},
     {'name': 'goblin', 'levels': '01', 'obj_name': 'Goblin', 'obj': Goblin},
     {'name': 'slime', 'levels': '0123456789', 'obj_name': 'Slime', 'obj': Slime},
-    {'name': 'mage', 'levels': '34', 'obj_name': 'Mage', 'obj': Mage},
-    {'name': 'dragon', 'levels': '9', 'obj_name': 'Dragon', 'obj': Dragon},
+    {'name': 'mage', 'levels': '34567', 'obj_name': 'Mage', 'obj': Mage},
+    {'name': 'dragon', 'levels': '789', 'obj_name': 'Dragon', 'obj': Dragon},
 ]
 
 def summon_monsters(level=0, count=1, name=None):
@@ -90,6 +94,8 @@ def summon_monsters(level=0, count=1, name=None):
     monster = random.choice(eligible)
     summoned = [monster.get('obj', Slime)(name=monster.get('obj_name', 'Slime'), level=level) for _ in range(count)]
     return summoned
+
+print(summon_monsters(level=9, count=2, name= None))
 
 #print(summon_monsters(level=2, count=2, name= None))
 #^^^^^^^^^^ to summon the monsters. pick level and count
