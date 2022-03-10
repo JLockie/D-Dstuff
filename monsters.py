@@ -95,7 +95,5 @@ def summon_monsters(level=0, count=1, name=None):
     summoned = [monster.get('obj', Slime)(name=monster.get('obj_name', 'Slime'), level=level) for _ in range(count)]
     return summoned
 
-print(summon_monsters(level=9, count=2, name= None))
-
 #print(summon_monsters(level=2, count=2, name= None))
 #^^^^^^^^^^ to summon the monsters. pick level and count
