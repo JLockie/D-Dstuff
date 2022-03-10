@@ -73,10 +73,10 @@ class Dragon(Monster):
         return 20 - random.randint(0, self.level)
     
 MONSTERS = [
-    {'name': 'skeleton', 'levels': '01234', 'obj_name': 'Skeleton', 'obj': Skeleton},
-    {'name': 'goblin', 'levels': '01', 'obj_name': 'Goblin', 'obj': Goblin},
-    {'name': 'slime', 'levels': '0123456789', 'obj_name': 'Slime', 'obj': Slime},
-    {'name': 'mage', 'levels': '34567', 'obj_name': 'Mage', 'obj': Mage},
+    {'name': 'skeleton', 'levels': '1234', 'obj_name': 'Skeleton', 'obj': Skeleton},
+    {'name': 'goblin', 'levels': '1234', 'obj_name': 'Goblin', 'obj': Goblin},
+    {'name': 'slime', 'levels': '123456789', 'obj_name': 'Slime', 'obj': Slime},
+    {'name': 'mage', 'levels': '56789', 'obj_name': 'Mage', 'obj': Mage},
     {'name': 'dragon', 'levels': '789', 'obj_name': 'Dragon', 'obj': Dragon},
 ]
 
