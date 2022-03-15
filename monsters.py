@@ -1,5 +1,4 @@
 from d20 import roll
-
 import random
 
 class Monster:
