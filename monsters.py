@@ -104,4 +104,4 @@ def summon_monsters(level=0, count=1, name=None):
 #print(summon_monsters(level=4, count=2, name= None))
 #print(summon_monsters(level=8, count=2, name= None))
 #print(summon_monsters(level=9, count=2, name= None))
-#print(summon_monsters(level=random.randint(1,9), count=2, name= None))
+#print(summon_monsters(level=random.randint(1,9), count=random.randint(1,3), name= None))
