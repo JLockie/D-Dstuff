@@ -34,5 +34,9 @@ ITEMMODS = ['of Minor Alchemy(Fortify Alchemy 1 12%)','of Alchemy(Fortify Alchem
 ITEMS = ['Amulet','Abacus','Arcane Focus','Backpack','Bagpipes','Ball Bearings','Barding','Barrel','Basket','Bedroll','Bell','Ring','Necklace','Cloth','Walking Stick','Watch','Potion','Elixir','Boots','Breastplate','Bottle','Book','Bucket','Candle'
 ]
 
-print(random.choice(ITEMS))
-print(random.choice(ITEMMODS))
+item = []
+for i in range(10):
+    a=random.sample(ITEMS,1)
+    b=random.sample(ITEMMODS,1)
+    item.append(a[0]+b[0])
+print(item)
