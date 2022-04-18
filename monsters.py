@@ -60,19 +60,19 @@ class Giant(Monster):
         self.obj_name = name
     
     def calc_hit_points(self):
-        return roll(f'{self.level}d8+{self.level + 50}')
+        return roll(f'{self.level}d8+{self.level + 25}')
 
-class Dragon(Monster):
+class Drake(Monster):
 
-    def __init__(self, name='Dragon', level=0, hp=None, ac=None):
+    def __init__(self, name='Drake', level=0, hp=None, ac=None):
         Monster.__init__(self, name=name, level=level, hp=hp, ac=ac)
         self.obj_name = name
     
     def calc_hit_points(self):
-        return roll(f'{self.level}d8+{self.level + 101}')
+        return roll(f'{self.level}d8+{self.level + 50}')
     
     def calc_armor_class(self):
-        return 23 - random.randint(0, 7)
+        return 20 - random.randint(0, 7)
     
 MONSTERS = [
     {'name': 'skeleton', 'levels': '1234', 'obj_name': 'Skeleton', 'obj': Skeleton},
@@ -81,7 +81,7 @@ MONSTERS = [
     {'name': 'mage', 'levels': '5678', 'obj_name': 'Mage', 'obj': Mage},
     {'name': 'spirit', 'levels': '5678', 'obj_name': 'Spirit', 'obj': Spirit},
     {'name': 'giant', 'levels': '5678', 'obj_name': 'Giant', 'obj': Giant},
-    {'name': 'dragon', 'levels': '9', 'obj_name': 'Dragon', 'obj': Dragon},
+    {'name': 'drake', 'levels': '9', 'obj_name': 'Dragon', 'obj': Drake},
 ]
 
 def summon_monsters(level=0, count=1, name=None):
