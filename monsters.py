@@ -1,5 +1,6 @@
 from d20 import roll
 import random
+from tkinter import*
 
 class Monster:
 
@@ -99,6 +100,16 @@ def summon_monsters(level=0, count=1, name=None):
     summoned = [monster.get('obj', Slime)(name=monster.get('obj_name', 'Slime'), level=level) for _ in range(count)]
     return summoned
 
+window = Tk()
+window.geometry("300x300")
+l1=Label(window,text="Need some Monsters?",font=10)
+l1.grid(row=5,column=2)
+def click():
+    res = summon_monsters(level=random.randint(1,9), count=random.randint(1,3), name= None)
+    l1.configure(text=res)
+btn=Button(window,text="Monster",fg="yellow",bg="red",command=click)
+btn.grid(row=0,column=0)
+window.mainloop()
 
 #test random summons:
 #print(summon_monsters(level=4, count=2, name= None))
