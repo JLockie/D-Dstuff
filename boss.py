@@ -1,5 +1,6 @@
 from d20 import roll
 import random
+from tkinter import*
 
 class Boss:
 
@@ -101,6 +102,17 @@ def summon_boss(level=0, count=1, name=None):
     boss = random.choice(eligible)
     summoned = [boss.get('obj', GelatinousCube)(name=boss.get('obj_name', 'Gelantinous Cube'), level=level) for _ in range(count)]
     return summoned
+
+window = Tk()
+window.geometry("300x300")
+l1=Label(window,text="Need a Boss?",font=15)
+l1.grid(row=0,column=2)
+def click():
+    res = summon_boss(level=random.randint(1,9), count=random.randint(1,3), name= None)
+    l1.configure(text=res)
+btn=Button(window,text="Boss",fg="yellow",bg="red",command=click)
+btn.grid(row=4,column=0)
+window.mainloop()
 
 #test random summons:
 #print(summon_boss(level=4, count=3, name= None))
