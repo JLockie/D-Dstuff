@@ -1,8 +1,9 @@
 # DnDstuff
-like DnD, then you might like this 
+like DnD, then you might like this
 
-first files is all about creating a monster generator. 
-we'll be adding attacks, loot, and spells soon.
-eventually we will have a character and npc generator.
+last work done on 4/21/22
+
+files for monster, boss, and loot generators shown 
+eventually we will have a character, npc, and dungeon generator.
 
 more to come soon.
